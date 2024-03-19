@@ -144,10 +144,10 @@ showHdpic.addEventListener('click', function () {
 	let loadHD = sessionStorage.getItem(`setQuality`);
 	if (loadHD === `High`) {
 		sessionStorage.setItem("setQuality", "Low");
-		showHdpic.innerHTML = `Image Quality: High | <b>Low</b>`
+		showHdpic.innerHTML = `Image Quality: High | <span style="color:purple;text-decoration: underline">Low</span>`
 	} else {
 		sessionStorage.setItem("setQuality", "High");
-		showHdpic.innerHTML = `Image Quality: <b>High</b> | Low`
+		showHdpic.innerHTML = `Image Quality: <span style="color:purple;text-decoration: underline">High</span> | Low`
 	}
 	location.reload();
 });

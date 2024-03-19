@@ -39,9 +39,9 @@ let uarray = ['Frenzo125', 'Fenimaure', 'FindingXY', 'ZzenN', 'Pennyclied30', 'C
 
 let loadHD = sessionStorage.getItem(`setQuality`);
 if (loadHD === `High`) {
-  showHdpic.innerHTML = `Image Quality: <b>High</b> | Low`
+  showHdpic.innerHTML = `Image Quality: <span style="color:purple;text-decoration: underline">High</span> | Low`
 } else {
-  showHdpic.innerHTML = `Image Quality: High | <b>Low</b>`
+  showHdpic.innerHTML = `Image Quality: High | <span style="color:purple;text-decoration: underline">Low</span>`
 }
 
 let sessionNumber = Math.floor(Math.random() * (1000000 - 100000 + 1)) + 100000;
