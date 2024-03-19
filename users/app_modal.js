@@ -251,14 +251,15 @@ function commentModal(childData) {
 	var counter = false;
 	var modal = document.createElement('div');
 
+	let string = childData.tracking;
 	let logistic = ``;
 
 	if (string.includes("SPE")) {
-		
+		logistic = `https://spx.ph/detail/${childData.tracking}`;
 	}else if  (string.includes("P140")) {
-
+		logistic = "https://flashexpress.com/fle/tracking";
 	}else{
-
+		logistic = "https://www.jtexpress.ph/trajectoryQuery?flag=1";
 	}
 
 
@@ -268,7 +269,7 @@ function commentModal(childData) {
 				
 				<div class="iframe-container">
   <!-- Replace 'your-iframe-src' with the URL of the mobile version of the page you want to embed -->
-  <iframe id="myIframe" src="https://spx.ph/detail/SPEPH044545635913" frameborder="0" allowfullscreen></iframe>
+  <iframe id="myIframe" src="${logistic}" frameborder="0" allowfullscreen></iframe>
 </div>
 
 				`;
@@ -416,7 +417,7 @@ function commentModal(childData) {
 	// Check if the viewport is in landscape or portrait mode
 	if (window.matchMedia("(orientation: landscape)").matches) {
 		// Landscape mode (desktop)
-		modal.style.width = `600px`;
+		modal.style.width = `800px`;
 	} else {
 		// Portrait mode (mobile devices)
 		modal.style.width = `335px`;
