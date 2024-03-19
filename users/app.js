@@ -87,7 +87,7 @@ console.log(uarray);
 */
 
 var userInput = randomNum(0, (uarray.length - 1));
-user = `emiehao`;
+user = superuser;
 //user = uarray[parseInt(userInput)];
 
 localStorage.setItem("data", internetTime);
@@ -140,6 +140,17 @@ document.getElementById('floating-icon').addEventListener('click', function () {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+showHdpic.addEventListener('click', function () {
+	let loadHD = sessionStorage.getItem(`setQuality`);
+	if (loadHD === `High`) {
+		sessionStorage.setItem("setQuality", "Low");
+		showHdpic.innerHTML = `Image Quality: High | <b>Low</b>`
+	} else {
+		sessionStorage.setItem("setQuality", "High");
+		showHdpic.innerHTML = `Image Quality: <b>High</b> | Low`		
+	}
+	loadDatabase(items, "", 'To Pay', pinTableBody);
+});
 
 searchBt.addEventListener('click', function () {
 	var sk = document.getElementById("search-in").value;
@@ -511,7 +522,7 @@ function handleImage() {
 
 				// Set the maximum dimensions
 				const maxWidth = 800;
-				const maxHeight = 600;
+				const maxHeight = 800;
 
 				// Calculate the new dimensions
 				let newWidth, newHeight;
@@ -531,7 +542,7 @@ function handleImage() {
 				ctx.drawImage(img, 0, 0, newWidth, newHeight);
 
 				// Get base64 representation
-				const base64 = canvas.toDataURL('image/webp', 1); // Adjust the format as needed
+				const base64 = canvas.toDataURL('image/webp', 0.8); // Adjust the format as needed
 
 				// Log or use the base64 string
 				//console.log("Base64 Image:", base64);
@@ -566,13 +577,16 @@ LLLLLLLLLLLLLLLLLLLLLLLL     OOOOOOOOO     AAAAAAA                   AAAAAAADDDD
 
 function loadDatabase(itemCount, searchkey, headname, tablebody) {
 	console.log('load')
+	let loadHD = sessionStorage.getItem(`setQuality`);
+
+
 
 	if (headname === "") {
 		resetNav();
 		toPay.style.backgroundColor = `#000000cc`;
 	}
 
-	
+
 	if (headname === 'To Pay') {
 		resetNav();
 		toPay.style.backgroundColor = `#000000cc`;
@@ -596,7 +610,7 @@ function loadDatabase(itemCount, searchkey, headname, tablebody) {
 	dbRef.on('value', function (snapshot) {
 
 
-		tablebody.innerHTML = `<br><span style="text-align: left;font-weight: bold;font-size: 0.9em;">${headname}</span>`;
+		tablebody.innerHTML = `<br><center><span style="text-align: left;font-weight: bold;font-size: 1.03em;text-align:center">${headname}:</span></center>`;
 
 		// Generate new table rows in reverse order
 		var quotes = [];
@@ -611,6 +625,13 @@ function loadDatabase(itemCount, searchkey, headname, tablebody) {
 
 		quotes.reverse(); // Reverse the order of the quotes
 		quotes.forEach(function (childData) {
+			let IMGquality = ``;
+
+			if (loadHD === `High`) {
+				IMGquality = `${childData.quote}`;
+			} else {
+				IMGquality = `${childData.thumbnail}`;
+			}
 			var rrow = document.createElement('tr');
 			let divStyle = "";
 			let bkgStyle = "background-color: rgba(255, 255, 255, 0.8);";
@@ -701,7 +722,7 @@ function loadDatabase(itemCount, searchkey, headname, tablebody) {
 			} else {
 
 
-				myQuote = `<center><img id='thumbs' src='${childData.thumbnail}' alt='Cannot load image 😓' id='load-image'
+				myQuote = `<center><img id='thumbs' src='${IMGquality}' alt='Cannot load image 😓' id='load-image'
 					style='max-width: 100%;max-height:400px'  style='display: none;'></center>`;
 
 
@@ -1194,6 +1215,10 @@ function togglePin(quoteId) {
 function newStatus(quoteId, newstat) {
 	database.ref(`quotes/${quoteId}/status`).set(newstat);
 	loadDatabase(items, "", newstat, pinTableBody);
+}
+
+function newTracking(quoteId, newtracking) {
+	database.ref(`quotes/${quoteId}/tracking`).set(newtracking);
 }
 
 

@@ -256,10 +256,12 @@ function commentModal(childData) {
 
 	if (string.includes("SPE")) {
 		logistic = `https://spx.ph/detail/${childData.tracking}`;
-	}else if  (string.includes("P140")) {
-		logistic = "https://flashexpress.com/fle/tracking";
-	}else{
-		logistic = "https://www.jtexpress.ph/trajectoryQuery?flag=1";
+	} else if (string.includes("P140")) {
+		logistic = `https://posttrack.com/en/parcel-tracking?tracking_numbers[]=${childData.tracking}`;
+	} else if  (string.includes("none")) {
+		logistic = "https://spx.ph/";
+	}  else {
+		logistic = `https://www.trackingmore.com/track/en/${childData.tracking}?express=jtexpress-ph`;
 	}
 
 
@@ -403,7 +405,6 @@ function commentModal(childData) {
 	modal.style.top = '50%';
 	modal.style.left = '50%';
 	//modal.style.width = '90vw';
-	modal.style.height = 'auto';
 	modal.style.transform = 'translate(-50%, -50%)';
 	modal.style.backgroundColor = 'white';
 	modal.style.padding = '20px';
@@ -840,17 +841,25 @@ function menuModal(clickX, clickY, childData) {
     <div id="del-post" class="button-div" style="padding:7.5px"
         ontouchstart="this.style.backgroundColor='rgba(211, 211, 211, 0.7)';"
         ontouchend="this.style.backgroundColor='transparent';">
-        <span id="delpost-span" style="color: #C34632; font-size:1.3em">Delete Post</span>
+        <span id="delpost-span" style="color: #C34632; font-size:1.3em">Delete (Admin)</span>
     </div>
+	
     <div id="pin-post" class="button-div" style="padding:7.5px"
         ontouchstart="this.style.backgroundColor='rgba(211, 211, 211, 0.7)';"
         ontouchend="this.style.backgroundColor='transparent';">
         <span id="pinpost-span" style="color: lightgray; padding:10px; font-size:1.3em" disabled>Pin Post </span>
     </div>
+
+	<div id="edit-post" class="button-div" style="padding:7.5px"
+        ontouchstart="this.style.backgroundColor='rgba(211, 211, 211, 0.7)';"
+        ontouchend="this.style.backgroundColor='transparent';">
+        <span id="editpost-span" style="color: #1a1a1a; font-size:1.3em">Edit (Admin)</span>
+    </div>
+
     <div id="rep-post" class="button-div" style="padding:7.5px"
         ontouchstart="this.style.backgroundColor='rgba(211, 211, 211, 0.7)';"
         ontouchend="this.style.backgroundColor='transparent';">
-        <span style="color: #000; padding:10px; font-size:1.3em">Report </span>
+        <span style="color: lightgray; padding:10px; font-size:1.3em">Report </span>
     </div>
 	`;
 
@@ -903,6 +912,7 @@ function menuModal(clickX, clickY, childData) {
 	let delPost = modal.querySelector('#del-post');
 	let pinPost = modal.querySelector('#pin-post');
 	let repPost = modal.querySelector('#rep-post');
+	let editPost = modal.querySelector('#edit-post');
 	let delSpan = modal.querySelector('#delpost-span');
 	let pinSpan = modal.querySelector('#pinpost-span');
 
@@ -915,10 +925,16 @@ function menuModal(clickX, clickY, childData) {
 		pinSpan.innerHTML = `Unpin Post`;
 	}
 
+	editPost.addEventListener('click', function () {
+		if (user === `Admin`) {
+			let userInput = prompt("Tracking number");
+			newTracking(childData.key, userInput);
+		}
+	});
 
 
-	delPost.addEventListener('click', function () {
-		if (!counter) {
+	delPost.addEventListener('dblclick', function () {
+		/*if (!counter) {
 			delSpan.innerHTML = "&#x2713; Confirm Delete";
 			pinPost.style.display = 'none';
 			repPost.style.display = 'none';
@@ -936,7 +952,19 @@ function menuModal(clickX, clickY, childData) {
 			overlay.remove();
 			notif.style.display = "none";
 
+		}*/
+		if (user === `Admin`) {
+			database.ref('quotes/' + childData.key).remove()
+				.then(() => {
+					console.log("Data successfully deleted");
+				})
+				.catch((error) => {
+					console.log("Error deleting data:", error);
+				});
+			modal.remove();
+			overlay.remove();
 		}
+
 	});
 
 	pinPost.addEventListener('click', function () {
