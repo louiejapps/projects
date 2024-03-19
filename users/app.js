@@ -147,9 +147,9 @@ showHdpic.addEventListener('click', function () {
 		showHdpic.innerHTML = `Image Quality: High | <b>Low</b>`
 	} else {
 		sessionStorage.setItem("setQuality", "High");
-		showHdpic.innerHTML = `Image Quality: <b>High</b> | Low`		
+		showHdpic.innerHTML = `Image Quality: <b>High</b> | Low`
 	}
-	loadDatabase(items, "", 'To Pay', pinTableBody);
+	location.reload();
 });
 
 searchBt.addEventListener('click', function () {
@@ -611,6 +611,19 @@ function loadDatabase(itemCount, searchkey, headname, tablebody) {
 
 
 		tablebody.innerHTML = `<br><center><span style="text-align: left;font-weight: bold;font-size: 1.03em;text-align:center">${headname}:</span></center>`;
+			
+		if (snapshot.exists()) {
+			itemCount = snapshot.numChildren();
+			tablebody.innerHTML = `<br><center><span style="text-align: left;font-weight: bold;font-size: 1.03em;text-align:center">${headname} (${itemCount}):</span></center>`;
+			//console.log(itemCount);
+		} else {
+			itemCount = 0;
+			tablebody.innerHTML = `<br><center><span style="text-align: left;font-weight: bold;font-size: 1.03em;text-align:center">${headname} (${itemCount}):</span></center>`;
+		}
+		//updatelike(type, itemCount);
+
+
+
 
 		// Generate new table rows in reverse order
 		var quotes = [];
@@ -691,7 +704,6 @@ function loadDatabase(itemCount, searchkey, headname, tablebody) {
 
 			let myOrderText = `
     <div style="font-family: Arial, sans-serif; background-color: transparent; padding: 0px; margin-left: 15px; border-radius: 5px; text-align:center">
-        <h3 style="color: #333333; margin-bottom: 5px;">My Order: ${childData.ordername}</h3>
         <p style="color: #666666; margin-bottom: 5px;">Tracking Number: ${childData.tracking}</p>
         <p style="color: #666666; margin-bottom: 5px; font-weight:bold">Price: ₱${childData.price}</p>
     </div>
@@ -806,7 +818,8 @@ ${dotsMenu}
 
 
 
-
+		<span style="color: #333333; margin-left:15px;margin-bottom: 15px;font-weight:bold;font-size:1.1em">My Order: ${childData.ordername}</span>
+		<br>
 		<div id="orderstatus" style="margin-left:15px">
 				<label for="cars">Status:</label>
 			  
