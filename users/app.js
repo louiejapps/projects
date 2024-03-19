@@ -909,7 +909,7 @@ ${dotsMenu}
 				}
 			}
 
-			document.title = "Liszt | " + user;
+			document.title = "ORDERS | " + user;
 
 			loading.style.display = 'none';
 
