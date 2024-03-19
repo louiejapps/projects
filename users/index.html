@@ -1,0 +1,280 @@
+<html>
+
+<head>
+    <meta property="og:title" content="Liszt by Louie" />
+    <meta property="og:description" content="File Collection" />
+    <meta property="og:image"
+        content="https://firebasestorage.googleapis.com/v0/b/lois-files.appspot.com/o/er.png?alt=media&token=1463e44f-1259-4680-9665-416a83e49a31" />
+    <meta property="og:url" content="www.github.com" />
+
+    <title>LISZT | Admin</title>
+    <link rel="icon" href="icon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=0.9" />
+    <!--<meta http-equiv="refresh" content="30">-->
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <style>
+        .iframe-container {
+            width: 100%;
+            height: 0;
+            padding-top: 56.25%;
+            /* Aspect ratio (16:9) */
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Style for the iframe itself */
+        .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            /* Remove iframe border */
+        }
+    </style>
+</head>
+<button id="floating-icon">
+    <svg width="20" height="20" style="vertical-align: middle;" fill="currentColor" class="bi bi-plus"
+        viewBox="0 0 16 16">
+        <path
+            d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
+    </svg>
+
+</button>
+
+<body>
+
+
+
+
+    <div id="loading-page" class="loading-page">
+        <div class="content-box">
+            <div class="fruits-animation-wrapper">
+                <div class="fruits-animation">
+                    <div class="fruit"></div>
+                </div>
+                <div class="shadow"></div>
+            </div>
+            <p></p>
+            <div style="text-align:center;">
+                <span id="loading-dots" style="color:orangered;"><strong>Loading</strong> ⭐⭐⭐</span>
+            </div>
+        </div>
+    </div>
+
+
+
+    <a id="top"></a>
+
+
+
+    <div id="container">
+
+
+
+        <div id="yourDivId">
+
+        </div>
+
+        <div id="navigator" style="text-align: center;width: auto;">
+            <div>
+                <div id="banner"><img src="" alt="SHOPEE" id="header-image" style="max-width: 100%;" /></fiv>
+                </div>
+
+
+
+
+                <div id="navigate" style="display:none;">
+                    <table border="0" class="tbnhead" id="navigator" align="center" style="max-width: 600px;">
+                        <tr>
+                            <td style="text-align:left; vertical-align:middle;height: 50; padding-left: 12px;">
+                                <span id="backbtn">Create Post</span>
+                            </td>
+
+                            <td style="text-align:right; vertical-align:middle; padding-right:12px;">
+                                <span id="cancel-button"><span style='color:#48a762'><b>CANCEL</b></span></span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+
+
+            <center>
+                <div id="header_notify"></div>
+
+                <nav id="navigation-bar">
+                    <a id="to-pay">To Pay</a>
+                    <a id="to-ship">To Ship</a>
+                    <a id="to-receive">To Receive</a>
+                    <a id="to-complete">Completed</a>
+                </nav>
+            </center>
+
+
+
+
+
+            <div id="postLink" style="display: none;">
+                <form id="post-form" name="post-form">
+
+
+
+                    <table border="0" class="tbn" align="center">
+                        <tr>
+                            <td style="text-align:left; vertical-align:middle;height: 50;padding:2px;">
+                                <div style="position: relative;">
+                                    <input class="div1" id="author" type="text" placeholder="Anonymous" disabled>
+                                    <div class="div2"><label class="toggle-switch">
+                                            <input type="checkbox" unchecked>
+                                            <span class="slider"></span>
+                                        </label></div>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2" style="">
+                                <textarea id="quote" name="quote" maxlength="320" placeholder="Write something..."
+                                    cols="33" rows="3"></textarea>
+
+                                <div id="show-image" class="image-container" style="display:none;">
+                                    <img id="preview-image" width="100%">
+                                    <a class="close-btn" href="#">&times;</a>
+                                </div>
+
+                                <div id="toolbar-url" style="display: none;">
+                                    <table border="0" align="center" style="width:100%;">
+                                        <tr>
+                                            <td style="width:100%">
+                                                <div style="position: relative;">
+                                                    <input class="div1" id="url-txt" type="text"
+                                                        placeholder="Enter Link" enabled>
+                                                    <div class="div2"><img id="img-cancel" width="20px"></div>
+                                                </div>
+                                            </td>
+
+                                        </tr>
+                                    </table>
+
+
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <table border="0" class="tbn3" align="center">
+                        <tr>
+                            <td colspan="2"><button type="submit" id="save-button" disabled><b>POST </b></button></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+
+
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+
+
+            <div id="column1">
+                <div class="scrollable-container" id="chat-list" style="border:none; display:none">
+
+                </div>
+
+                <div align="center">
+                    <div align="center" style="width: 100%; display:none">
+                        <button id="show-form-button"><b>+ CREATE POST</b></button>
+                    </div>
+                </div>
+
+                <span style="font-weight:bold;font-size: 1.3em;">My Shopee Orders</span>
+
+                <table id="pin_table" class="tbF" align="center">
+
+                    <tbody id="pin-table-body">
+
+                    </tbody>
+
+                </table>
+
+                <table id="main_table" class="tbF" align="center">
+
+                    <tbody id="quote-table-body">
+
+                    </tbody>
+
+                </table>
+
+
+                <div align="center">
+                    <div align="center" style="width: 100%;">
+                        <button id="more-button">
+                            <strong>SHOW MORE</strong>
+                        </button>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div id="footer" style="text-align:center;">
+
+
+
+                <table id="search-box" style="width: 100%;">
+                    <tr>
+                        <td style="text-align:center; vertical-align:middle;"><input id="search-in" type="text"
+                                placeholder="Search..."></td>
+                        <td style="text-align:center; vertical-align:middle;"><button id="search-bt"
+                                type="submit" disabled>Search</button></td>
+                    </tr>
+                </table>
+
+                <h4>
+
+                    <span style="color:#e98a8b">All Rights Reserved<br>&copy 2018-2024</span>
+
+                </h4>
+
+                <h5>
+                    <span style="color:white">Developers:</span>
+                    <br>
+                    <span style="color:white">Louie John Castillo</span>
+                    <br>
+                    <span style="color:white">Software Engineer</span>
+                    <br>
+                    <br>
+                    <a style="color:#bf5456"
+                        href="https://dl.acm.org/profile/99659557358">https://dl.acm.org/profile/99659557358</a>
+
+
+                </h5>
+
+                <div>
+                    <a href="#top">
+                        <div align="center" style="width: 100%;">
+                            <button style="background-color: #f84a41;">
+                                <strong>RETURN TO TOP</strong>
+                            </button>
+
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+
+        <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+        <script src="app_media.js"></script>
+        <script src="app_modal.js"></script>
+        <script src="app.js"></script>
+
+</body>
+
+</html>
