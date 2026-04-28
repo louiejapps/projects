@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.5">
+    <title>Louie John Castillo - Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .resume-container {
+            width: 8.5in;
+            height: 15.5in;
+            background: white;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            display: flex;
+            overflow: hidden;
+        }
+
+        .sidebar {
+            width: 35%;
+            background: linear-gradient(180deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px 30px;
+        }
+
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 5px solid white;
+            background: #ddd;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: #1e3c72;
+            font-weight: bold;
+        }
+
+        .sidebar h1 {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-info {
+            margin-top: 30px;
+            font-size: 11px;
+            line-height: 1.6;
+        }
+
+        .contact-info p {
+            margin-bottom: 8px;
+            word-wrap: break-word;
+        }
+
+        .sidebar-section {
+            margin-top: 30px;
+        }
+
+        .sidebar-section h3 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 5px;
+        }
+
+        .sidebar-section ul {
+            list-style: none;
+            font-size: 10px;
+            line-height: 1.5;
+        }
+
+        .sidebar-section ul li {
+            margin-bottom: 6px;
+            padding-left: 12px;
+            position: relative;
+        }
+
+        .sidebar-section ul li:before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #ffd700;
+        }
+
+        .main-content {
+            width: 65%;
+            padding: 40px 35px;
+            background: white;
+        }
+
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            color: #1e3c72;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            padding-bottom: 6px;
+            border-bottom: 3px solid #667eea;
+            font-weight: 600;
+        }
+
+        .objective {
+            font-size: 11px;
+            line-height: 1.6;
+            color: #444;
+            font-style: italic;
+        }
+
+        .experience-item {
+            margin-bottom: 18px;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+
+        .company-name {
+            font-size: 13px;
+            font-weight: bold;
+            color: #1e3c72;
+        }
+
+        .date {
+            font-size: 10px;
+            color: #666;
+            font-style: italic;
+        }
+
+        .job-title {
+            font-size: 11px;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .experience-item ul {
+            font-size: 10px;
+            line-height: 1.5;
+            color: #444;
+            margin-left: 18px;
+        }
+
+        .experience-item ul li {
+            margin-bottom: 4px;
+        }
+
+        .education-item {
+            margin-bottom: 12px;
+        }
+
+        .school-name {
+            font-size: 12px;
+            font-weight: bold;
+            color: #1e3c72;
+        }
+
+        .degree {
+            font-size: 10px;
+            color: #666;
+            margin-top: 2px;
+        }
+
+        .research-item {
+            margin-bottom: 8px;
+        }
+
+        .research-title {
+            font-size: 11px;
+            font-weight: bold;
+            color: #1e3c72;
+            line-height: 1.4;
+        }
+
+        .research-details {
+            font-size: 9px;
+            color: #666;
+            margin-top: 3px;
+            line-height: 1.4;
+        }
+
+        .accomplishment-item {
+            margin-bottom: 12px;
+        }
+
+        .accomplishment-title {
+            font-size: 12px;
+            font-weight: bold;
+            color: #1e3c72;
+            margin-bottom: 5px;
+        }
+
+        .accomplishment-item ul {
+            font-size: 10px;
+            line-height: 1.5;
+            color: #444;
+            margin-left: 18px;
+        }
+
+        .accomplishment-item ul li {
+            margin-bottom: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="resume-container">
+        <div class="sidebar">
+            <div class="profile-img">
+                <img src="profile.jpg" alt="Profile Picture"
+                    style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover;">
+            </div>
+            <h1>Louie John<br>Castillo</h1>
+            <div class="contact-info">
+                <p>📍 Digos City, Davao del Sur</p>
+                <p>📞 09155059198</p>
+                <p>✉️ louiejohnc@gmail.com</p>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Programming</h3>
+                <ul>
+                    <li>Java, C++, C, Dart</li>
+                    <li>Python3, Python, JavaScript ES6+</li>
+                    <li>TypeScript, React, Angular, VueJS</li>
+                    <li>HTML5, CSS</li>
+                    <li>Firebase, Pandas</li>
+                    <li>MySQL, PostgreSQL</li>
+                    <li>Git, Vercel, AWS</li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Hardware &amp; Tools</h3>
+                <ul>
+                    <li>Raspberry Pi, Arduino</li>
+                    <li>VHDL microcontrollers</li>
+                    <li>Android Studio</li>
+                    <li>VSCode, WebStorm, PyCharm</li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>AI &amp; ML</h3>
+                <ul>
+                    <li>TensorFlow, Numpy, Matlab</li>
+                    <li>Computer Vision, OpenCV</li>
+                    <li>Claude, ChatGPT, Grock, Copilot</li>
+                    <li>AI Prompt Engineering</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="section">
+                <div class="section-title">Objective</div>
+                <p class="objective">I would like to join your team and share my knowledge and high critical thinking
+                    skills to solve your problems.</p>
+            </div>
+            <div class="section" style="margin-top: -10px;">
+                <div class="section-title">Experience</div>
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <span class="company-name">Quizlet Inc.</span>
+                        <span class="date">Feb 2021 – March 2023</span>
+                    </div>
+                    <div class="job-title">Expert Contributor | Content Writer</div>
+                    <ul>
+                        <li>Quizlet is a multi-national American education technology company that provides digital
+                            study tools, solutions, and teaching content material to help students worldwide.</li>
+                        <li>Created high quality content to solve complex topics like semiconductor physics,
+                            electronics, computer programming, business, statistics, calculus, and algebra.</li>
+                    </ul>
+                    <div class="experience-header">
+                        <span class="company-name">Work-From-Home Jobs | Miscellaneous</span>
+                        <span class="date">2020 – Present</span>
+                    </div>
+                    <ul>
+                        <li>Wecans Adamedy | Math Tutor</li>
+                        <li>Leetcode | DSA Editorial Content Writer</li>
+                        <li>Weblio PH | VA</li>
+                        <li>RemoTask | Map Data Analyst</li>
+                        <li>Various Programming Part-Time Projects | Java | MySQL | Android | Flutter | React | AI/ML
+                            ETC.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Education</div>
+                <div class="education-item">
+                    <div class="school-name">Cor Jesu College</div>
+                    <div class="degree">Bachelor of Science in Computer Engineering (2020)</div>
+                </div>
+                <div class="education-item">
+                    <div class="school-name">Digos City National High School</div>
+                    <div class="degree">Engineering and Science Education Program</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Published Research</div>
+                <div class="research-item">
+                    <div class="research-title">A Supervised Learning Approach on Rice Variety Classification<br>using
+                        Convolutional Neural Networks (CNN)</div>
+                    <div class="research-details">
+                        Proceedings of the 6th International Conference on Bioinformatics Research and Applications<br>
+                        December 2019<br>Presented in Seoul National University, Seoul, Republic of Korea
+                        <br>Publisher: Association for Computing Machinery, New York, United States
+                        <br>ACM Digital Library: <a
+                            href="https://dl.acm.org/doi/abs/10.1145/3383783.3383788">https://dl.acm.org/doi/abs/10.1145/3383783.3383788</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Accomplishments</div>
+                <div class="accomplishment-item">
+                    <div class="accomplishment-title">Leetcode Global Contest</div>
+                    <ul>
+                        <li>Top 161 (&lt;0.01%) in Global Ranking | Guardian Badge</li>
+                        <li>Best Solutions Contributor</li>
+                        <li>Solved 1,770 Unique Problems with Advanced Data Structures</li>
+                        <li>5.5 Million Views | 60,000 Reputation</li>
+                    </ul>
+                </div>
+            </div>
+
+            <a href="https://leetcode.com/u/la_castille/">
+                <img src="edu.png" alt="Leetcode" width="500" style="margin-left: -20px; margin-top: -10px;">
+            </a>
+            <img src="edu2.png" alt="Leetcode" width="500" style="margin-left: -20px; margin-top: -10px;">
+        </div>
+    </div>
+
+
+</body>
+
+</html>
